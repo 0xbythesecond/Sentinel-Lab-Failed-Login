@@ -260,8 +260,13 @@ Here our focus will be event id <b>4625</b> for the failed logins. The details t
 <li>And more</ul>
 <p align="center"> <img src="https://i.imgur.com/OnglJ9P.png" height="50%" width="50%" alt="Event Viewer 4625 log"/></p>
 
-We will grab the IP address that is found here in Event Viewer that was from the failed login and use that address with <a href="https://ipgeolocation.io/">ipgeolocation.io to get an accurate IP lookup</a>
-<p align="center" <img src="https://i.imgur.com/Ophfhxt.png" height="50%" width="50%" alt="IP Geolocation"/></p>
+We will grab the IP address that is found here in Event Viewer that was from the failed login and use that address with <a href="https://ipgeolocation.io/">ipgeolocation.io</a> to get an accurate IP lookup
+<p align="center"> <img src="https://i.imgur.com/Ophfhxt.png" height="50%" width="50%" alt="IP Geolocation"/></p>
+There will be a need to disable the firewall on the VM so that it can respond to ICMP echo request so that the bad actors can discover it on the internet.
+To do so, we can do a quick search in the virtual machine for 'wf.msc' > select windows defender firewall properties
+> select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.<p align="center"> <img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Disable Firewall"/></p>
+After you've cycled through each of these, you can now select 'Apply' then press 'OK'.
+
 
 
 
