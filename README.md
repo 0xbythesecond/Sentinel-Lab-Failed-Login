@@ -184,11 +184,7 @@ In the Networking portion, we will select to change the NIC Network Security Gro
  
  We will select the 'Add an Inbound Rule' option and then make a change to the 'Destination port ranges' to an ' * ' as a wildcard to accept anything. Then will select to change the Priority to 100 and make a name change to your liking (DANGER_ANY_IN). You can now select 'Add' 
  <p align="center"><img src="https://i.imgur.com/i4dgfhu.png" height="50%" width="50%" alt="Create New NSG"/></p>
- 
- The added inbound rule with the changes are now reflected here:
- <p align="center"><img src="https://i.imgur.com/XhQYX8n.png" height="50%" width="50%" alt="Updated NSG Inbound Rules"/></p>
- 
-Adjusting the inbound rules will appear as follows:
+ Adjusting the inbound rules will appear as follows:
  <pre>
  <b>Source </b>
  any
@@ -204,9 +200,13 @@ Adjusting the inbound rules will appear as follows:
  any
  <b>Priority</b>
  100</pre>
- <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Change inboud rules details"/></p>
- Once these have been looked over, we can now select to 'Review + Create"
- <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Review Create Virtual Machine"/></p>
+ 
+ The added inbound rule with the changes are now reflected here:
+ <p align="center"><img src="https://i.imgur.com/XhQYX8n.png" height="50%" width="50%" alt="Updated NSG Inbound Rules"/></p>
+ 
+We will now press 'OK' to move forward. 
+Once these have been looked over, we can now select to 'Review + Create"
+<p align="center"><img src="https://i.imgur.com/9VP2ui7.png" height="50%" width="50%" alt="Review Create Virtual Machine"/></p>
  
 Validation of Creation of VM
  
