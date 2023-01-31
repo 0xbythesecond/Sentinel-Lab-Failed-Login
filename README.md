@@ -1,4 +1,13 @@
 # Sentinel-Lab-Failed-Login
+
+## Introduction
+This lab help you get ramped up with Microsoft Sentinel and provide hands-on practical experience for product features, capabilities, and scenarios. 
+
+We will set up Azure Sentinel (SIEM) and connect it to a live virtual machine acting as a honey pot. We will observe live attacks (RDP Brute Force) from all around the world. We will use a custom PowerShell script to look up the attackers Geolocation information and plot it on the Azure Sentinel Map and the fact that Microsoft Sentinel offers a 30-day free trial.
+
+## Prerequisites
+
+To deploy Microsoft Sentinel Trainig Lab, **you must have a Microsoft Azure subscription**. If you do not have an existing Azure subscription, you can sign up for a free trial [here](https://azure.microsoft.com/free/).
 The Powershell script in this repository is responsible for parsing out Windows Event Log information for failed RDP attacks and using a third party API to collect geographic information about the attackers location.
 
 <details>
