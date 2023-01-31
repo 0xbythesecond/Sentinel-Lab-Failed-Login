@@ -1,7 +1,7 @@
 # Sentinel-Lab-Failed-Login
 
 ## Introduction
-This lab help you get ramped up with Microsoft Sentinel and provide hands-on practical experience for product features, capabilities, and scenarios. 
+This lab will help you get ramped up with Microsoft Sentinel and provide hands-on practical experience for product features, capabilities, and scenarios. 
 
 We will set up Azure Sentinel (SIEM) and connect it to a live virtual machine acting as a honey pot. We will observe live attacks (RDP Brute Force) from all around the world. We will use a custom PowerShell script to look up the attackers Geolocation information and plot it on the Azure Sentinel Map and the fact that Microsoft Sentinel offers a 30-day free trial.
 
@@ -150,18 +150,41 @@ while ($true)
         }
     }
 }
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
 </details>
+ 
+## Description
+<ul> <li>Configure and Deploy Azure Resources such as Log Analytics Workspace, Virtual Machines, and Azure Sentinel.</li>
+ </ul>
+ 
+ 
+ ## Step 1
+ 
+ 
+We will create a Virtua Machine that will be exposed to the internet where people around world will be able to attack it. Bad actors will try to login to this Virtual Machine once they've discovered that it's now online. While creating the Virtual Machine, we will create a new Resource Group as well.
+ 
+We search Virtual Machine at top of the page, and once the page loads will choose the '+ Create' button to begin the first steps of creating the virtual machine.
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Create Virtual Machine"/></p>
+ 
+Here we will be using East US for the region 
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Enter details for Virtual Machine"/></p>
+ 
+In the Networking portion, we will select to change the NIC Network Security Group (NSG) from Basic to Advanced to adjust the inbound rules of the NSG to allow everything into the Virtual Machine.
+ 
+ <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Create New NSG"/></p>
+ 
+Adjusting the inbound rules will look like the following:
+ <pre>
+ <b>Source </b>
+ any
+ <b>Source port ranges </b> 
+ * 
+ <b>Destination </b>
+ any 
+ <b>Service </b>
+ custom
+ <b>Destination port ranges </b>
+ 8080</pre>
+ <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Change inboud rules details"/></p>
 
+
+ 
