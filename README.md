@@ -182,8 +182,11 @@ In the Networking portion, we will select to change the NIC Network Security Gro
  Now, will need to remove (select 3 dots to the right of the page) the current default inbound rules on the virtual machine and will adjust them to rules that are most accepting of all traffic so that it can be found be the bad actors.
  <p align="center"><img src="https://i.imgur.com/8uLMfCn.png" heigh="50%" width="50%" alt="Remove Default Inound Rules"></p>
  
- We will select the 'Add an Inbound Rule' option and then make a change to the 'Destination port ranges' to an ' * ' as a wildcard to accept anything. Then will select to change the Priority to 100 and make a name change to your liking (DANGER_ANY_IN). 
+ We will select the 'Add an Inbound Rule' option and then make a change to the 'Destination port ranges' to an ' * ' as a wildcard to accept anything. Then will select to change the Priority to 100 and make a name change to your liking (DANGER_ANY_IN). You can now select 'Add' 
  <p align="center"><img src="https://i.imgur.com/i4dgfhu.png" height="50%" width="50%" alt="Create New NSG"/></p>
+ 
+ The added inbound rule with the changes are now reflected here:
+ <p align="center"><img src="https://i.imgur.com/XhQYX8n.png" height="50%" width="50%" alt="Updated NSG Inbound Rules"/></p>
  
 Adjusting the inbound rules will appear as follows:
  <pre>
