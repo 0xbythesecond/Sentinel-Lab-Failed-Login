@@ -159,7 +159,7 @@ while ($true)
  </ul>
  
  
- ## Step 1
+ ## Step 1: Configure and Deploy Resources
  
 
 We will create a Virtua Machine that will be exposed to the internet where people around world will be able to attack it. Bad actors will try to login to this Virtual Machine once they've discovered that it's now online. While creating the Virtual Machine, we will create a new Resource Group as well.
@@ -177,7 +177,13 @@ Leave the default settings for the inboound port rules that are found below and 
  
 In the Networking portion, we will select to change the NIC Network Security Group (NSG) from Basic to Advanced to adjust the inbound rules of the NSG to allow everything into the Virtual Machine.
  
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Create New NSG"/></p>
+ <p align="center"><img src="https://i.imgur.com/CK6HXdb.png" height="50%" width="50%" alt="Settings for Networking of VM"/></p>
+ 
+ Now, will need to remove (select 3 dots to the right of the page) the current default inbound rules on the virtual machine and will adjust them to rules that are most accepting of all traffic so that it can be found be the bad actors.
+ <p align="center"><img src="https://i.imgur.com/8uLMfCn.png" heigh="50%" width="50%" alt="Remove Default Inound Rules"></p>
+ 
+ We will select the 'Add an Inbound Rule' option and then make a change to the 'Destination port ranges' to an ' * ' as a wildcard to accept anything. Then will select to change the Priority to 100 and make a name change to your liking (DANGER_ANY_IN). 
+ <p align="center"><img src="https://i.imgur.com/i4dgfhu.png" height="50%" width="50%" alt="Create New NSG"/></p>
  
 Adjusting the inbound rules will appear as follows:
  <pre>
