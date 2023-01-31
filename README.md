@@ -161,14 +161,19 @@ while ($true)
  
  ## Step 1
  
- 
+
 We will create a Virtua Machine that will be exposed to the internet where people around world will be able to attack it. Bad actors will try to login to this Virtual Machine once they've discovered that it's now online. While creating the Virtual Machine, we will create a new Resource Group as well.
  
 We search Virtual Machine at top of the page, and once the page loads will choose the '+ Create' button to begin the first steps of creating the virtual machine.
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Create Virtual Machine"/></p>
+<p align="center"><img src="https://i.imgur.com/CoIAYPA.png" height="50%" width="50%" alt="Create Virtual Machine"/></p>
  
-Here we will be using East US for the region 
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Enter details for Virtual Machine"/></p>
+Here we will choose to create a resource group (naming convention here is the name of the labname-rg). We're also selecting the 'East US' as our preferred region due to resource cost and availability. Afte the region is selected, we will select the image of Windows 10 pro and the other settings will continue to be set at default. 
+<p align="center"><img src="https://i.imgur.com/nZxgZCr.png" height="50%" width="50%" alt="Enter details for Virtual Machine"/></p>
+
+<p align="center"><img src="https://i.imgur.com/35M9M7U.png" height="50%" width="50%" alt"Enter image user name and password"/></p>
+
+Leave the default settings for the inboound port rules that are found below and be sure to check the box for "I confirm I have an eligible Windows 10/11 license with multi-tenant hosting rights."
+<p align="center"><img src="https://i.imgur.com/INNWJ1p.png" height="50%" width="50%" alt="Select license checkbox"/></p>
  
 In the Networking portion, we will select to change the NIC Network Security Group (NSG) from Basic to Advanced to adjust the inbound rules of the NSG to allow everything into the Virtual Machine.
  
