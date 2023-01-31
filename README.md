@@ -1,4 +1,4 @@
-# Sentinel-Lab-Failed-Login
+# Sentinel Lab Failed Login
 
 ## Introduction
 This lab will help you get ramped up with Microsoft Sentinel and provide hands-on practical experience for product features, capabilities, and scenarios. 
@@ -170,9 +170,9 @@ Here we will be using East US for the region
  
 In the Networking portion, we will select to change the NIC Network Security Group (NSG) from Basic to Advanced to adjust the inbound rules of the NSG to allow everything into the Virtual Machine.
  
- <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Create New NSG"/></p>
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Create New NSG"/></p>
  
-Adjusting the inbound rules will look like the following:
+Adjusting the inbound rules will appear as follows:
  <pre>
  <b>Source </b>
  any
@@ -183,8 +183,49 @@ Adjusting the inbound rules will look like the following:
  <b>Service </b>
  custom
  <b>Destination port ranges </b>
- 8080</pre>
+ *
+ <b>Protocol</b>
+ any
+ <b>Priority</b>
+ 100</pre>
  <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Change inboud rules details"/></p>
+ Once these have been looked over, we can now select to 'Review + Create"
+ <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Review Create Virtual Machine"/></p>
+ 
+Validation of Creation of VM
+ 
+Now, we are going to create our Log Analytics Workspace to receive or ingest logs from the virtual machine such as windows event logs and our custom logs that has geographic information in order to discover where the attackers are located. Our SIEM will be able to connect to the workspace to be able to display the geo-data on the map that will be created later in the lab. 
+ 
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Create Log Analytics Workspace"/></p>
+ 
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Enter Details for Log Analytics Workspace"/></p>
+ 
+Next, you will 'Review + Create' the log analytics workspace
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Review + Create LAW"/></p>
+ 
+We can now search for 'Security Center' at the top of the page so that we can enable the ability to gather logs from the Virtual Machine.  
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Security Center"/></p>
+ 
+To do so, we will navigate to 'Pricing & Settings' then select the log analytics workspace that we create previously that is displayed a selectable option. We will then, select to turn 'Azure Defender On' and then turn <b>OFF</b> 'SQL Servers on Machine'. Once this is done, you will select to '<b> Save </b>'. 
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Pricing & Settings"/></p>
+ 
+Following this, we will select 'Data Collection' in the left pane and enable 'All Events' option under store additional raw data - windows securtity events then choose to '<b> Save</b>'.
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Select All Events"/></p>
+ 
+We can now go back to our log analytics worspace to connect our Virtual Machine. Search 'Log Analytics Workspace' and then scroll down to select the Virtual Machine option. You will choose the VM that we created previously then select the chainlink to 'Connect' the VM to the log analytics workspace. 
+ <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Select Virtual Machine in List"/></p>
+ 
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Connect Virtual Machine"/></p>
+
+
+
+ 
+ 
+
+
+
+
+
 
 
  
