@@ -218,6 +218,55 @@ We can now go back to our log analytics worspace to connect our Virtual Machine.
 <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Connect Virtual Machine"/></p>
 
 
+We're going to set up Sentinel now that we can visualize the attack data that will display the details of the attackers location. You will do a quick search for 'Sentinel' and then select the 'Create' button at the top left or the middle of the screen. Then we will select the log analytics workspace (created earlier) that we want to connect to where all of our logs are. Once it's selected you can press the add button at the bottom of the screen.   
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Sentinel"/></p>
+
+Select '<b>Add</b>' here. 
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Add Workspace to Sentinel"/></p>
+
+Now, we can go back to the virtual machine to check and see if it is finished connecting and if so, you will choose the VM to select the public IP address that we will be using to connect via Remote Desktop Connect (RDP)
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Public IP address"/></p>
+
+<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="RDP Login"/></p>
+
+Once you successfully authenticate to the virtual machine and are logged in, search for Event Viewer and open the program.
+
+As you can see there are several types of logs Windows Collects:
+Application logs, Security Logs, Setup, System, and Forwarded Events.
+
+<p align="center"> <img src="https://i.imgur.com/5AjVv7E.png" height="50%" width="50%" alt="Event Viewer Search"/></p>
+
+<p align="center"> <img src="https://i.imgur.com/OnglJ9P.png" height="50%" width="50%" alt="Event Viewer"/></p>
+
+Our focus in this lab will be on Windows Security events.
+
+Click “Security” and observe the events.
+
+As you can see there are several security events in event viewer. Let’s drill into one of these events.
+
+Here our focus will be event id <b>4625</b> for the failed logins. The details that available in the log that is selected are as follows: 
+<li>Account name</li>
+<li>Account domain</li>
+<li>Failure reason</li>
+<li>Logon process</li>
+<li>Authentication package</li>
+<li>Log name</li>
+<li>Task</li>
+<li>Category</li>
+<li>Computer</li>
+<li>Keywords</li>
+<li>Workstation</li>
+<li>Source Network Address (IP address)</li>
+<li>And more</ul>
+<p align="center"> <img src="https://i.imgur.com/OnglJ9P.png" height="50%" width="50%" alt="Event Viewer 4625 log"/></p>
+
+We will grab the IP address that is found here in Event Viewer that was from the failed login and use that address with <a href="https://ipgeolocation.io/">ipgeolocation.io to get an accurate IP lookup</a>
+<p align="center" <img src="https://i.imgur.com/Ophfhxt.png" height="50%" width="50%" alt="IP Geolocation"/></p>
+
+
+
+
+
 
  
  
