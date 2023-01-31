@@ -11,6 +11,7 @@ To deploy Microsoft Sentinel Trainig Lab, **you must have a Microsoft Azure subs
 The Powershell script in this repository is responsible for parsing out Windows Event Log information for failed RDP attacks and using a third party API to collect geographic information about the attackers location.
 
 <details>
+ <summary><h3> 📜 PowerShell Script </h3></summary>   
 # Get API key from here: https://ipgeolocation.io/
 $API_KEY      = "d4600b4efdef42b39828f5155041a457"
 $LOGFILE_NAME = "failed_rdp.log"
