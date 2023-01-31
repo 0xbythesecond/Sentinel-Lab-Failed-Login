@@ -150,6 +150,8 @@ while ($true)
         }
     }
 }
+ 
+ 
 </details>
  
 ## Description
@@ -264,8 +266,15 @@ We will grab the IP address that is found here in Event Viewer that was from the
 <p align="center"> <img src="https://i.imgur.com/Ophfhxt.png" height="50%" width="50%" alt="IP Geolocation"/></p>
 There will be a need to disable the firewall on the VM so that it can respond to ICMP echo request so that the bad actors can discover it on the internet.
 To do so, we can do a quick search in the virtual machine for 'wf.msc' > select windows defender firewall properties
-> select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.<p align="center"> <img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Disable Firewall"/></p>
+> select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.
+> <p align="center"> <img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Disable Firewall"/></p>
 After you've cycled through each of these, you can now select 'Apply' then press 'OK'.
+
+You can use the powershell script listed above by creating a new file inside PowerShell ISE and can name it Log_Exporter. For this script, you will need your own API Key that you can get by signing up for an account at <a href="https://ipgeolocation.io/signup.html">Sign Up</a>.
+Without the API key, you will not be able to get the geo data that allows the location of the bad actors to be shown.
+<p align="center"> <img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="PowerShell File Creation"/></p>
+
+The next thing that we'll do is create a custom log. We will go to the log analytics workspace and select 'Custom Log" then choose to add the custom log. To get the log that have been created from the script, we can go to the virtual machine and the path of C:\ProgramData\ and select 'failed_rdp' file so C:\ProgramData\failed_rdp.log. 
 
 
 
