@@ -158,6 +158,7 @@ while ($true)
 <ul> <li>Configure and Deploy Azure Resources such as Log Analytics Workspace, Virtual Machines, and Azure Sentinel.</li>
  <li>Implement Network Rules for Network Security Group (NSG)</li>
  <li> Take A Look At Windows Security Event logs</li>
+ <li> Use KQL Query Logs </li>
 
 
  </ul>
@@ -342,15 +343,26 @@ Here will create your custom name and a description of what the log will do. An 
 Review + Create will be the final steps here for the custom log and it gives you an overview of what you've just created in case you want to go back and make adjustments or necessary changes. 
 <p align="center"><img src="https://i.imgur.com/hOtyCXB.png" height="50%" width="50%" alt="review + create custom log"/></p>
 
-Since the custom log have been established, we can go to 'Logs' on the left pane and we will enter "FAILED_RDP_WITH_GEO_CL" in the Kusto Query Language (KQL)
-
-In the raw data column of the logs, it contains the entire line of each of the custom logs that we created for "FAILED_RDP_WITH_GEO_CL. With the raw data, we will extract certain fields from it so that we can create columns that will be displayed as a result
+Since the custom log have been established, we can go to 'Logs' on the left pane and we will enter "FAILED_RDP_WITH_GEO_CL" in the Kusto Query Language (KQL) field.
 
 A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model that is easy to read, author, and automate. Kusto queries are made of one or more query statements. (learn more <a hre="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/"here</a>) 
 
 Here is an example for <b> SecurityEvent</b> of failed log in attempts <b> where</b> the EventID <b> 4625 </b>:
 <pre> SecurityEvent
 | where EventID == 4625 </pre>
+
+In the raw data column of the logs, it contains the entire line of each of the custom logs that we created for "FAILED_RDP_WITH_GEO_CL. With the raw data, we will extract certain fields from it so that we can create columns that will be displayed as a result.
+<p align="center"><img src="https://i.imgur.com/gqcL9Vv.png" height="50%" width="50%" alt="failed rdp with geo raw column"/></p>
+
+
+To exact the data, you will select one of the results and expanding it using the caret and then right-click on the raw data. After right-clicking, you select the option of "extract fields from 'FAILED_RDP_WITH_GEO'."
+<p align="center"><img src="https://i.imgur.com/MHTUEa1.png" height="50%" width="50%" alt="extract data"/></p>
+
+We will be extracting each of these fields that are found in the raw data. The first field that we will be extracting will be the 'latitude' field. So we will hightlight the numbers that follow the colon after latitude. Enter the field title name manually and select numeric as the field type. 
+<p align="center"><img src="https://i.imgur.com/nVIINal.png" height="50%" width="50%" alt="extract latitude"/></p>
+
+After selecting to extract the data for latitude the results will yield the following for the search results and matches. Once you've verified that the search results align with the correct outcome for latitude, you will press the 'Save Extration' button at the bottom of the page. 
+<p align="center"><img src="https://i.imgur.com/vCwgDDs.png" height="50%" width="50%" alt="latitude search results"/></p>
 
 
 
