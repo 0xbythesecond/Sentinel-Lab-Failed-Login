@@ -156,6 +156,10 @@ while ($true)
  
 ## Description
 <ul> <li>Configure and Deploy Azure Resources such as Log Analytics Workspace, Virtual Machines, and Azure Sentinel.</li>
+ <li>Implement Network Rules for Network Security Group (NSG)</li>
+ <li> Take A Look At Windows Security Event logs</li>
+
+
  </ul>
  
  
