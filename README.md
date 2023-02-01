@@ -208,42 +208,59 @@ We will now press 'OK' to move forward.
 Once these have been looked over, we can now select to 'Review + Create"
 <p align="center"><img src="https://i.imgur.com/9VP2ui7.png" height="50%" width="50%" alt="Review Create Virtual Machine"/></p>
  
-Validation of Creation of VM
+Validation of Creation of VM --- This is the final step in creating the virtual Machine (VM) and see that it has been validated with a "Pass" and confirms all the details that have been added to the VM as a summary result. 
+ <p align="center"><img src="https://i.imgur.com/6baoa2e.png" height="50%" width="50%" alt="Final State for Creating Virtual Machine"/></p>
+ 
+ Select the Create Button
+ <p align="center"><img src="https://i.imgur.com/Wb9Ggus.png" height="50%" width="50%" alt="Select Create Button for VM"/></p>
+ 
+ This is the final confirmation displaying the creation of the Virtual Machine 
+ <p align="center"><img src="https://i.imgur.com/fjDO3oV.png" height="50%" width="50%" alt="Deployment of VM"/></p>
  
 Now, we are going to create our Log Analytics Workspace to receive or ingest logs from the virtual machine such as windows event logs and our custom logs that has geographic information in order to discover where the attackers are located. Our SIEM will be able to connect to the workspace to be able to display the geo-data on the map that will be created later in the lab. 
  
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Create Log Analytics Workspace"/></p>
+<p align="center"><img src="https://i.imgur.com/1ExWnBV.png" height="50%" width="50%" alt="Create Log Analytics Workspace"/></p>
  
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Enter Details for Log Analytics Workspace"/></p>
+<p align="center"><img src="https://i.imgur.com/Xq0jqhE.png" height="50%" width="50%" alt="Enter Details for Log Analytics Workspace"/></p>
+ 
+
  
 Next, you will 'Review + Create' the log analytics workspace
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Review + Create LAW"/></p>
+<p align="center"><img src="https://i.imgur.com/zEMPI4D.png" height="50%" width="50%" alt="Review + Create LAW"/></p>
+
+<p align="center"><img src="https://i.imgur.com/Gc4bGCG.png" height="50%" width="50%" alt="Create LaW"/></p>
+
+<p align="center"><img src="https://i.imgur.com/YklC74u.png" height="50%" width="50%" alt="Deployment of LaW"/></p>
  
-We can now search for 'Security Center' at the top of the page so that we can enable the ability to gather logs from the Virtual Machine.  
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Security Center"/></p>
+We can now search for 'Defender for Cloud' at the top of the page so that we can enable the ability to gather logs from the Virtual Machine.  
+<p align="center"><img src="https://i.imgur.com/ZS8bpZv.png" height="50%" width="50%" alt="Defender for Cloud"/></p>
  
-To do so, we will navigate to 'Pricing & Settings' then select the log analytics workspace that we create previously that is displayed a selectable option. We will then, select to turn 'Azure Defender On' and then turn <b>OFF</b> 'SQL Servers on Machine'. Once this is done, you will select to '<b> Save </b>'. 
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Pricing & Settings"/></p>
+To do so, we will navigate to 'Evironment Settings' then select the log analytics workspace that we create previously that is displayed a selectable option. We will then, select to turn 'Azure Defender On' and then turn <b>OFF</b> 'SQL Servers on Machine'. Once this is done, you will select to '<b> Save </b>'. 
+<p align="center"><img src="https://i.imgur.com/v7SNEGs.png" height="50%" width="50%" alt="Pricing & Settings"/></p>
  
 Following this, we will select 'Data Collection' in the left pane and enable 'All Events' option under store additional raw data - windows securtity events then choose to '<b> Save</b>'.
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Select All Events"/></p>
+<p align="center"><img src="https://i.imgur.com/lKdP5Ah.png" height="50%" width="50%" alt="Select All Events"/></p>
  
 We can now go back to our log analytics worspace to connect our Virtual Machine. Search 'Log Analytics Workspace' and then scroll down to select the Virtual Machine option. You will choose the VM that we created previously then select the chainlink to 'Connect' the VM to the log analytics workspace. 
- <p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Select Virtual Machine in List"/></p>
+<p align="center"><img src="https://i.imgur.com/JuWhnuV.png" height="50%" width="50%" alt="choose workspace"/></p>
+<p align="center"><img src="https://i.imgur.com/9mSAa3S.png" height="50%" width="50%" alt="Select Virtual Machine in List"/></p>
  
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Connect Virtual Machine"/></p>
-
+ Select the Virtual Machine
+<p align="center"><img src="https://i.imgur.com/r9xAInL.png" height="50%" width="50%" alt="select vm"/></p>
+ 
+<p align="center"><img src="https://i.imgur.com/zSpANfP.png" height="50%" width="50%" alt="Connect Virtual Machine"/></p>
+ 
 
 We're going to set up Sentinel now that we can visualize the attack data that will display the details of the attackers location. You will do a quick search for 'Sentinel' and then select the 'Create' button at the top left or the middle of the screen. Then we will select the log analytics workspace (created earlier) that we want to connect to where all of our logs are. Once it's selected you can press the add button at the bottom of the screen.   
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Sentinel"/></p>
+<p align="center"><img src="https://i.imgur.com/sNyE6Xq.png" height="50%" width="50%" alt="Sentinel"/></p>
 
 Select '<b>Add</b>' here. 
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Add Workspace to Sentinel"/></p>
+<p align="center"><img src="https://i.imgur.com/FZvnWWI.png" height="50%" width="50%" alt="Add Workspace to Sentinel"/></p>
 
 Now, we can go back to the virtual machine to check and see if it is finished connecting and if so, you will choose the VM to select the public IP address that we will be using to connect via Remote Desktop Connect (RDP)
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Public IP address"/></p>
+<p align="center"><img src="https://i.imgur.com/zSGiuVw.png" height="50%" width="50%" alt="Public IP address"/></p>
 
-<p align="center"><img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="RDP Login"/></p>
+<p align="center"><img src="https://i.imgur.com/jJw15fb.png" height="50%" width="50%" alt="RDP Login"/></p>
 
 Once you successfully authenticate to the virtual machine and are logged in, search for Event Viewer and open the program.
 
@@ -274,21 +291,30 @@ Here our focus will be event id <b>4625</b> for the failed logins. The details t
 <li>Workstation</li>
 <li>Source Network Address (IP address)</li>
 <li>And more</ul>
-<p align="center"> <img src="https://i.imgur.com/OnglJ9P.png" height="50%" width="50%" alt="Event Viewer 4625 log"/></p>
+<p align="center"> <img src="https://i.imgur.com/KNq7Tmr.png" height="30%" width="30%" alt="Event Viewer 4625 log"/></p>
 
-We will grab the IP address that is found here in Event Viewer that was from the failed login and use that address with <a href="https://ipgeolocation.io/">ipgeolocation.io</a> to get an accurate IP lookup
+We will grab the IP address that is found here in Event Viewer that was from the failed login and use that address with <a href="https://ipgeolocation.io/">ipgeolocation.io</a> to get an accurate IP address lookup. This will allow us to plot ou the different attackers on a map. 
 <p align="center"> <img src="https://i.imgur.com/Ophfhxt.png" height="50%" width="50%" alt="IP Geolocation"/></p>
 There will be a need to disable the firewall on the VM so that it can respond to ICMP echo request so that the bad actors can discover it on the internet.
-To do so, we can do a quick search in the virtual machine for 'wf.msc' > select windows defender firewall properties
-> select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.
-> <p align="center"> <img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="Disable Firewall"/></p>
+To do so, we can do a quick search in the virtual machine for 'wf.msc'.
+<p align="center"><img src="https://i.imgur.com/GU9z44I.png" height="50%" width="50%" alt="wf msc. screentshot"/></p>
+Select windows defender firewall properties
+<p align="center"><img src="https://i.imgur.com/MwBKGvY.png" height="50%" width="50%" alt="windows defender firewall"/></p>
+
+Now select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.
+<p align="center"> <img src="https://i.imgur.com/8nwwdH8.png" height="50%" width="50%" alt="Disable Firewall"/></p>
 After you've cycled through each of these, you can now select 'Apply' then press 'OK'.
 
-You can use the powershell script listed above by creating a new file inside PowerShell ISE and can name it Log_Exporter. For this script, you will need your own API Key that you can get by signing up for an account at <a href="https://ipgeolocation.io/signup.html">Sign Up</a>.
-Without the API key, you will not be able to get the geo data that allows the location of the bad actors to be shown.
-<p align="center"> <img src="https://i.imgur.com/DJmEXEB.png" height="50%" width="50%" alt="PowerShell File Creation"/></p>
+We can go to the VM and open PowerShell ISE and this will be where our script will be loaded.
+<p align="center"><img src="https://i.imgur.com/Vq5Tmxf.png" height="50%" width="50%" alt="powershell ise screenshot"/></p>
 
-The next thing that we'll do is create a custom log. We will go to the log analytics workspace and select 'Custom Log" then choose to add the custom log. To get the log that have been created from the script, we can go to the virtual machine and the path of C:\ProgramData\ and select 'failed_rdp' file so C:\ProgramData\failed_rdp.log. 
+You can use the powershell script listed above or can be found <a href="https://github.com/joshmadakor1/Sentinel-Lab/blob/main/Custom_Security_Log_Exporter.ps1">here</a> by creating a new file inside PowerShell ISE and can name it Log_Exporter. For this script, you will need your own API Key that you can get by signing up for an account at <a href="https://ipgeolocation.io/signup.html">Sign Up</a>.
+Without the API key, you will not be able to get the geo data that allows the location of the bad actors to be shown.
+So go to your powershell click 'new script' at the top left of the window and paste the script provided. Be sure to change the API key to your API key that you received when creating your account on ipgeolocation. 
+<p align="center"> <img src="https://i.imgur.com/39362oA.png" height="50%" width="50%" alt="PowerShell File Creation"/></p>
+
+The next thing that we'll do is create a custom log. We will go to the log analytics workspace and select 'Custom Log" then choose to add the custom log. To get the log that has been created from the script, we can go to the virtual machine and the path of C:\ProgramData\ and select 'failed_rdp' file so C:\ProgramData\failed_rdp.log. 
+<p align="center"> <img src="https://i.imgur.com/5DnQMZm.png" height="50%" width="50%" alt="failed_rdp file"/></p>
 
 
 
