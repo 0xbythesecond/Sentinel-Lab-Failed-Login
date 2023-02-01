@@ -361,10 +361,49 @@ To exact the data, you will select one of the results and expanding it using the
 We will be extracting each of these fields that are found in the raw data. The first field that we will be extracting will be the 'latitude' field. So we will hightlight the numbers that follow the colon after latitude. Enter the field title name manually and select numeric as the field type. 
 <p align="center"><img src="https://i.imgur.com/nVIINal.png" height="50%" width="50%" alt="extract latitude"/></p>
 
+We will continue to do this for each of the fields present in raw data:
+<pre>
+latitude
+longitude
+destination host
+username 
+sourcehost
+state
+country
+timestamp</pre>
 After selecting to extract the data for latitude the results will yield the following for the search results and matches. Once you've verified that the search results align with the correct outcome for latitude, you will press the 'Save Extration' button at the bottom of the page. 
-<p align="center"><img src="https://i.imgur.com/vCwgDDs.png" height="50%" width="50%" alt="latitude search results"/></p>
+<p align="center"><img src="https://i.imgur.com/vCwgDDs.png" height="50%" width="50%" alt="extract latitude"/></p>
 
+If for some reason, the longitude or another field does not properly hightlight in the search result, click the pencil in the right hand corner then select 'modify this highlight'. 
+<p align="center"><img src="https://i.imgur.com/0cL4EKS.png" height="50%" width="50%" alt="modify hightlight"/></p>
 
+Here we are getting the data for the destinationhost that follow the same steps as before. The destination host will be the virtual machine that we created earlier. 
+<p align="center"><img src="https://i.imgur.com/yHWpm2Y.png" height="50%" width="50%" alt="extract destination host"/></p>
+
+The next item that we will extract will be the username for the user that will used to log into the virtual machine. We will see the different user names that are tried in an attempt to log into the virtual machine. 
+
+<p align="center"><img src="https://i.imgur.com/edvt45U.png" height="50%" width="50%" alt="extract username"/></p>
+<p align="center"><img src="https://i.imgur.com/FmIHa1s.png" height="50%" width="50%" alt="extrace username search results"/></p>
+
+Sourcehost will be the IP address that was used for the attempted login
+<p align="center"><img src="https://i.imgur.com/pQGat9z.png" height="50%" width="50%" alt="extract source host"/></p>
+<p align="center"><img src="https://i.imgur.com/CTMfRfI.png" height="50%" width="50%" alt="extract source host search results"/></p>
+
+Next will be the extraction for State/Province
+<p align="center"><img src="https://i.imgur.com/MwiL48B.png" height="50%" width="50%" alt="extract state or province"/></p>
+<p align="center"><img src="https://i.imgur.com/CCOBbCw.png" height="50%" width="50%" alt="extract state or province search results"/></p>
+
+<p align="center"><img src="https://i.imgur.com/9cP55he.png" height="50%" width="50%" alt="extract country"/></p>
+<p align="center"><img src="https://i.imgur.com/yHpWRn6.png" height="50%" width="50%" alt="extract country search results"/></p>
+
+<p align="center"><img src="https://i.imgur.com/o3y1bp6.png" height="50%" width="50%" alt="exact label"/></p>
+<p align="center"><img src="https://i.imgur.com/SoMKdTV.png" height="50%" width="50%" alt="extract label search results"/></p>
+
+<p align="center"><img src="https://i.imgur.com/yFQvXS0.png" height="50%" width="50%" alt="exact timestamp"/></p>
+<p align="center"><img src="https://i.imgur.com/QdO2DJ8.png" height="50%" width="50%" alt="extract timestamp search results"/></p>
+
+If we are to go back to sentinel, we can see an overview of the events that have happened to the virtual machine and can be found below:
+<p align="center"><img src="https://i.imgur.com/Hu98jqG.png" height="50%" width="50%" alt="exact timestamp"/></p>
 
 
 
