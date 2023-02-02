@@ -174,7 +174,7 @@ while ($true)
  </ul>
  
  
- ## Step 1: Configure and Deploy Resources
+ ## Configure and Deploy Resources
  
 
 We will create a Virtua Machine that will be exposed to the internet where people around world will be able to attack it. Bad actors will try to login to this Virtual Machine once they've discovered that it's now online. While creating the Virtual Machine, we will create a new Resource Group as well.
