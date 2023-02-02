@@ -436,7 +436,7 @@ latitude_CF
 <b>Longitude</b>
 longitude_CF
 <b>Size by</b>
-latitude_CF
+event_count
 <b>Aggregation for location</b>
 Sum of Value
 <b>Minimum region size</b>
