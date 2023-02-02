@@ -8,7 +8,7 @@ We will set up Azure Sentinel (SIEM) and connect it to a live virtual machine ac
 ## Prerequisites
 
 To deploy Microsoft Sentinel Trainig Lab, **you must have a Microsoft Azure subscription**. If you do not have an existing Azure subscription, you can sign up for a free trial [here](https://azure.microsoft.com/free/).
-The Powershell script in this repository is responsible for parsing out Windows Event Log information for failed RDP attacks and using a third party API to collect geographic information about the attackers location.
+The Powershell script in this repository is responsible for parsing out Windows Event Log information for failed RDP attacks and using a third party API (<a href="https://ipgeolocation.io/">ipgeolocation.io</a>) to collect geographic information about the attackers location.
 
 <details>
  <summary><h3> 📜 PowerShell Script </h3></summary>   
