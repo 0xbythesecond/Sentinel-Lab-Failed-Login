@@ -231,7 +231,7 @@ Validation of Creation of VM --- This is the final step in creating the virtual 
  
  This is the final confirmation displaying the creation of the Virtual Machine 
  <p align="center"><img src="https://i.imgur.com/fjDO3oV.png" height="50%" width="50%" alt="Deployment of VM"/></p>
- 
+# Create Our Log Ananlytics Workspace 
 Now, we are going to create our Log Analytics Workspace to receive or ingest logs from the virtual machine such as windows event logs and our custom logs that has geographic information in order to discover where the attackers are located. Our SIEM will be able to connect to the workspace to be able to display the geo-data on the map that will be created later in the lab. 
  
 <p align="center"><img src="https://i.imgur.com/1ExWnBV.png" height="50%" width="50%" alt="Create Log Analytics Workspace"/></p>
@@ -485,6 +485,9 @@ event_count
 </pre>
 Then we will save the map settings that we have put in place
 <p align="center"><img src="https://i.imgur.com/y4i26f3.png" height="50%" width="50%" alt="save map settings"/></p>
+
+Finally, this is our last image of the countries that have attempted to access our virtual machine
+<p alingn="center"><img src="https://i.imgur.com/QD7wXqI.png" height="50%" width="50%" alt="last image for map attack'/></p>
 
 
 
