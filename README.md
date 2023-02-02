@@ -159,8 +159,18 @@ while ($true)
  <li>Implement Network Rules for Network Security Group (NSG)</li>
  <li> Take A Look At Windows Security Event logs</li>
  <li> Use KQL Query Logs </li>
-
-
+ <li>Enable gathering VM logs in Security Center</li>
+ <li>Connect Log Analytics to VM</li>
+ <li>Log into VM with Remote Desktop (fail 1 logon)</li>
+ <li>Observe Event Viewer Logs in VM</li>
+<li>Turn of Windows Firewall on VM</li>
+<li>Download PowerShell Script</li>
+<li>Get Geolocation.io API Key</li>
+<li>Run Script To get Geo Data from attackers</li>
+<li>Create custom log in LAW to bring in our custom log</li>
+<li>Create custom fields/extract fields from raw custom log data</li>
+<li>Testing Extracts</li>
+<li>Setup map in sentinel with Latitude and Longitude (or country)</li>
  </ul>
  
  
