@@ -486,8 +486,10 @@ event_count
 Then we will save the map settings that we have put in place
 <p align="center"><img src="https://i.imgur.com/y4i26f3.png" height="50%" width="50%" alt="save map settings"/></p>
 
-Finally, this is our last image of the countries that have attempted to access our virtual machine
-<p alingn="center"><img src="https://i.imgur.com/QD7wXqI.png" height="50%" width="50%" alt="last image for map attack"/></p>
+Finally, this is our last image of more countries deciding to join on the fun of attempting to access our virtual machine
+<p align="center"><img src="https://i.imgur.com/QD7wXqI.png" height="50%" width="50%" alt="last image for map attack"/></p>
+
+`That's that end of the lab, be sure to delete the resource group that was created if you are done and it no longer has use.`
 
 
 
