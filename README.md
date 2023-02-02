@@ -405,6 +405,78 @@ Next will be the extraction for State/Province
 If we are to go back to sentinel, we can see an overview of the events that have happened to the virtual machine and can be found below:
 <p align="center"><img src="https://i.imgur.com/Hu98jqG.png" height="50%" width="50%" alt="exact timestamp"/></p>
 
+Now we will set up our geo map in our workbook. 
+<p align="center"><img src="https://i.imgur.com/C2LTEA9.png" height="50%" width="50%" alt="sentinel workbooks select"/></p>
+
+Select the '+ Add workbook' button new the top of the page
+<p align="center"><img src="https://i.imgur.com/xNVaojA.png" height="50%" width="50%" alt="add workbook"/></p>
+
+After the workbook loads, you will select the edit and remove each of the widgets that are pre-loaded queries as we will be adding our own. 
+<p align="center"><img src="https://i.imgur.com/3ZAPODj.png" height="50%" width="50%" alt="add workbook"/></p>
+
+Select the '+Add' button and then select to 'Add Query'. 
+<p align="center"><img src="https://i.imgur.com/GvTpvUH.png" height="50%" width="50%" alt="add query"/></p>
+
+We will add the following query that reflects what we have created from the raw data of the logs:
+<pre>
+FAILED_RDP_WITH_GEO_CL | summarize event_count=count() by sourcehost_CF, latitude_CF, longitude_CF, country_CF, label_CF, destinationhost_CF
+| where destinationhost_CF != "samplehost"
+| where sourcehost_CF != ""
+</pre>
+
+<p align="center"><img src="https://i.imgur.com/eyXFcVn.png" height="50%" width="50%" alt="change visualization to map"/></p>
+
+You will apply the following to the Map Settings:
+<pre>
+<h2>Layout Settings</h2>
+<b>Location Info using</b>
+Latitude/Longitude
+<b>Latitude</b>
+latitude_CF
+<b>Longitude</b>
+longitude_CF
+<b>Size by</b>
+latitude_CF
+<b>Aggregation for location</b>
+Sum of Value
+<b>Minimum region size</b>
+20
+<b>Maximum region size</b>
+70
+<b>Default region size</b>
+10
+<b>Minimum value</b>
+(auto)
+<b>Maximum value</b>
+(auto)
+<b>Opacity of items on Map</b>
+0.7
+<h2>Color Settings</h2>
+
+<b>Coloring Type</b>
+Heatmap
+<b>Color by</b>
+latitude_CF
+<b>Aggregation for color</b>
+Sum of value
+<b>Color palette</b>
+Green to Red
+<b>Minimum value</b>
+(auto)
+<b>Maximum value</b>
+(auto)
+<h2>Metric Settings</h2>
+<b>Matric Label</b>
+label_CF
+<b>Matric Value</b>
+event_count
+<b>Create 'Others' group after</b>
+10
+</pre>
+Then we will save the map settings that we have put in place
+<p align="center"><img src="https://i.imgur.com/y4i26f3.png" height="50%" width="50%" alt="save map settings"/></p>
+
+
 
 
 
