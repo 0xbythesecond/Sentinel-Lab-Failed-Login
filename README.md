@@ -231,7 +231,9 @@ Validation of Creation of VM --- This is the final step in creating the virtual 
  
  This is the final confirmation displaying the creation of the Virtual Machine 
  <p align="center"><img src="https://i.imgur.com/fjDO3oV.png" height="50%" width="50%" alt="Deployment of VM"/></p>
-# Create Our Log Ananlytics Workspace 
+ 
+## Create Our Log Ananlytics Workspace 
+ 
 Now, we are going to create our Log Analytics Workspace to receive or ingest logs from the virtual machine such as windows event logs and our custom logs that has geographic information in order to discover where the attackers are located. Our SIEM will be able to connect to the workspace to be able to display the geo-data on the map that will be created later in the lab. 
  
 <p align="center"><img src="https://i.imgur.com/1ExWnBV.png" height="50%" width="50%" alt="Create Log Analytics Workspace"/></p>
@@ -265,7 +267,7 @@ We can now go back to our log analytics worspace to connect our Virtual Machine.
  
 <p align="center"><img src="https://i.imgur.com/zSpANfP.png" height="50%" width="50%" alt="Connect Virtual Machine"/></p>
  
-
+## Setup Azure Sentinel
 We're going to set up Sentinel now that we can visualize the attack data that will display the details of the attackers location. You will do a quick search for 'Sentinel' and then select the 'Create' button at the top left or the middle of the screen. Then we will select the log analytics workspace (created earlier) that we want to connect to where all of our logs are. Once it's selected you can press the add button at the bottom of the screen.   
 <p align="center"><img src="https://i.imgur.com/sNyE6Xq.png" height="50%" width="50%" alt="Sentinel"/></p>
 
@@ -292,7 +294,8 @@ Click “Security” and observe the events.
 
 As you can see there are several security events in event viewer. Let’s drill into one of these events.
 
-Here our focus will be event id <b>4625</b> for the failed logins. The details that available in the log that is selected are as follows: 
+Here, our focus will be event id <b>4625</b> for the failed logins. The details that available in the log that is selected are as follows: 
+ 
 <li>Account name</li>
 <li>Account domain</li>
 <li>Failure reason</li>
@@ -308,6 +311,8 @@ Here our focus will be event id <b>4625</b> for the failed logins. The details t
 <li>And more</ul>
 <p align="center"> <img src="https://i.imgur.com/KNq7Tmr.png" height="30%" width="30%" alt="Event Viewer 4625 log"/></p>
 
+## Gather API key for use with PowerShell
+
 We will grab the IP address that is found here in Event Viewer that was from the failed login and use that address with <a href="https://ipgeolocation.io/">ipgeolocation.io</a> to get an accurate IP address lookup. This will allow us to plot ou the different attackers on a map. 
 <p align="center"> <img src="https://i.imgur.com/Ophfhxt.png" height="50%" width="50%" alt="IP Geolocation"/></p>
 There will be a need to disable the firewall on the VM so that it can respond to ICMP echo request so that the bad actors can discover it on the internet.
@@ -315,6 +320,8 @@ To do so, we can do a quick search in the virtual machine for 'wf.msc'.
 <p align="center"><img src="https://i.imgur.com/GU9z44I.png" height="50%" width="50%" alt="wf msc. screentshot"/></p>
 Select windows defender firewall properties
 <p align="center"><img src="https://i.imgur.com/MwBKGvY.png" height="50%" width="50%" alt="windows defender firewall"/></p>
+
+## Remove Windows Firewall Restrictions
 
 Now select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.
 <p align="center"> <img src="https://i.imgur.com/8nwwdH8.png" height="50%" width="50%" alt="Disable Firewall"/></p>
@@ -328,6 +335,7 @@ Without the API key, you will not be able to get the geo data that allows the lo
 So go to your powershell click 'new script' at the top left of the window and paste the script provided. Be sure to change the API key to your API key that you received when creating your account on ipgeolocation. 
 <p align="center"> <img src="https://i.imgur.com/39362oA.png" height="50%" width="50%" alt="PowerShell File Creation"/></p>
 
+## Create a Custom Log
 The next thing that we'll do is create a custom log. We will go to the log analytics workspace and select 'Custom Log" then choose to add the custom log. To get the log that has been created from the script, we can go to the virtual machine and the path of C:\ProgramData\ and select 'failed_rdp' file so C:\ProgramData\failed_rdp.log. 
 <p align="center"> <img src="https://i.imgur.com/5DnQMZm.png" height="50%" width="50%" alt="failed_rdp file"/></p>
 
@@ -353,6 +361,7 @@ Here will create your custom name and a description of what the log will do. An 
 Review + Create will be the final steps here for the custom log and it gives you an overview of what you've just created in case you want to go back and make adjustments or necessary changes. 
 <p align="center"><img src="https://i.imgur.com/hOtyCXB.png" height="50%" width="50%" alt="review + create custom log"/></p>
 
+## Utilize KQL Kusto Query
 Since the custom log have been established, we can go to 'Logs' on the left pane and we will enter "FAILED_RDP_WITH_GEO_CL" in the Kusto Query Language (KQL) field.
 
 A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model that is easy to read, author, and automate. Kusto queries are made of one or more query statements. (learn more <a hre="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/"here</a>) 
@@ -434,6 +443,7 @@ FAILED_RDP_WITH_GEO_CL | summarize event_count=count() by sourcehost_CF, latitud
 | where sourcehost_CF != ""
 </pre>
 
+## Create Workbook to Provide Map Visualization
 <p align="center"><img src="https://i.imgur.com/eyXFcVn.png" height="50%" width="50%" alt="change visualization to map"/></p>
 
 You will apply the following to the Map Settings:
