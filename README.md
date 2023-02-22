@@ -252,7 +252,7 @@ Next, you will 'Review + Create' the log analytics workspace
 We can now search for 'Defender for Cloud' at the top of the page so that we can enable the ability to gather logs from the Virtual Machine.  
 <p align="center"><img src="https://i.imgur.com/ZS8bpZv.png" height="50%" width="50%" alt="Defender for Cloud"/></p>
  
-To do so, we will navigate to 'Evironment Settings' then select the log analytics workspace that we create previously that is displayed a selectable option. We will then, select to turn 'Azure Defender On' and then turn <b>OFF</b> 'SQL Servers on Machine'. Once this is done, you will select to '<b> Save </b>'. 
+To do so, we will navigate to 'Environment Settings' then select the log analytics workspace that we create previously that is displayed a selectable option. We will then, select to turn 'Azure Defender On' and then turn <b>OFF</b> 'SQL Servers on Machine'. Once this is done, you will select to '<b> Save </b>'. 
 <p align="center"><img src="https://i.imgur.com/v7SNEGs.png" height="50%" width="50%" alt="Pricing & Settings"/></p>
  
 Following this, we will select 'Data Collection' in the left pane and enable 'All Events' option under store additional raw data - windows securtity events then choose to '<b> Save</b>'.
