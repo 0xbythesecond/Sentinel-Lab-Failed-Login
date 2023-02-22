@@ -374,7 +374,7 @@ In the raw data column of the logs, it contains the entire line of each of the c
 <p align="center"><img src="https://i.imgur.com/gqcL9Vv.png" height="50%" width="50%" alt="failed rdp with geo raw column"/></p>
 
 
-To exact the data, you will select one of the results and expanding it using the caret and then right-click on the raw data. After right-clicking, you select the option of "extract fields from 'FAILED_RDP_WITH_GEO'."
+To extract the data, you will select one of the results and expanding it using the caret and then right-click on the raw data. After right-clicking, you select the option of "extract fields from 'FAILED_RDP_WITH_GEO'."
 <p align="center"><img src="https://i.imgur.com/MHTUEa1.png" height="50%" width="50%" alt="extract data"/></p>
 
 We will be extracting each of these fields that are found in the raw data. The first field that we will be extracting will be the 'latitude' field. So we will hightlight the numbers that follow the colon after latitude. Enter the field title name manually and select numeric as the field type. 
