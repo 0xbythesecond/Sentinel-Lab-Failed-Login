@@ -194,7 +194,7 @@ In the Networking portion, we will select to change the NIC Network Security Gro
  
  <p align="center"><img src="https://i.imgur.com/CK6HXdb.png" height="50%" width="50%" alt="Settings for Networking of VM"/></p>
  
- Now, we'll need to remove (select 3 dots to the right of the page) the current default inbound rules on the virtual machine and will adjust them to rules that are most accepting of all traffic so that it can be found be the bad actors.
+ Now, we'll need to remove (select 3 dots to the right of the page) the current default inbound rules on the virtual machine and will adjust them to rules that are most accepting of all traffic so that it can be found by the bad actors.
  <p align="center"><img src="https://i.imgur.com/8uLMfCn.png" heigh="50%" width="50%" alt="Remove Default Inound Rules"></p>
  
  We will select the 'Add an Inbound Rule' option and then make a change to the 'Destination port ranges' to an ' * ' as a wildcard to accept anything. Then, we'll select to change the Priority to 100 and make a name change to your liking (DANGER_ANY_IN). You can now select 'Add' 
