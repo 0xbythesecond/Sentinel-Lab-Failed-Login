@@ -269,7 +269,7 @@ We can now go back to our log analytics workspace to connect our Virtual Machine
  
 ## Setup Azure Sentinel
 We're going to set up Sentinel now that we can visualize the attack data that will display the details of the attackers location. You will do a quick search for 'Sentinel' and then select the 'Create' button at the top left or the middle of the screen. Then we will select the log analytics workspace (created earlier) that we want to connect to where all of our logs are. Once it's selected you can press the add button at the bottom of the screen.   
-<p align="center"><img src="https://i.imgur.com/sNyE6Xq.png" height="50%" width="50%" alt="Sentinel"/></p>
+<p align="center"><img src="https://i.imgur.com/10d9qnu.png" height="50%" width="50%" alt="Sentinel"/></p>
 
 Select '<b>Add</b>' here. 
 <p align="center"><img src="https://i.imgur.com/FZvnWWI.png" height="50%" width="50%" alt="Add Workspace to Sentinel"/></p>
