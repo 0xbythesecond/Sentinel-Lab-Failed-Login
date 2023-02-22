@@ -182,22 +182,22 @@ We will create a Virtua Machine that will be exposed to the internet where peopl
 We search Virtual Machine at top of the page, and once the page loads will choose the '+ Create' button to begin the first steps of creating the virtual machine.
 <p align="center"><img src="https://i.imgur.com/CoIAYPA.png" height="50%" width="50%" alt="Create Virtual Machine"/></p>
  
-Here we will choose to create a resource group (naming convention here is the name of the labname-rg). We're also selecting the 'East US' as our preferred region due to resource cost and availability. Afte the region is selected, we will select the image of Windows 10 pro and the other settings will continue to be set at default. 
+Here we will choose to create a resource group (naming convention here is the name of the labname-rg). We're also selecting the 'East US' as our preferred region due to resource cost and availability. After the region is selected, we will select the image of Windows 10 pro and the other settings will continue to be set at default. 
 <p align="center"><img src="https://i.imgur.com/nZxgZCr.png" height="50%" width="50%" alt="Enter details for Virtual Machine"/></p>
 
 <p align="center"><img src="https://i.imgur.com/35M9M7U.png" height="50%" width="50%" alt"Enter image user name and password"/></p>
 
-Leave the default settings for the inboound port rules that are found below and be sure to check the box for "I confirm I have an eligible Windows 10/11 license with multi-tenant hosting rights."
+Leave the default settings for the inbound port rules that are found below and be sure to check the box for "I confirm I have an eligible Windows 10/11 license with multi-tenant hosting rights."
 <p align="center"><img src="https://i.imgur.com/INNWJ1p.png" height="50%" width="50%" alt="Select license checkbox"/></p>
  
 In the Networking portion, we will select to change the NIC Network Security Group (NSG) from Basic to Advanced to adjust the inbound rules of the NSG to allow everything into the Virtual Machine.
  
  <p align="center"><img src="https://i.imgur.com/CK6HXdb.png" height="50%" width="50%" alt="Settings for Networking of VM"/></p>
  
- Now, will need to remove (select 3 dots to the right of the page) the current default inbound rules on the virtual machine and will adjust them to rules that are most accepting of all traffic so that it can be found be the bad actors.
+ Now, we'll need to remove (select 3 dots to the right of the page) the current default inbound rules on the virtual machine and will adjust them to rules that are most accepting of all traffic so that it can be found be the bad actors.
  <p align="center"><img src="https://i.imgur.com/8uLMfCn.png" heigh="50%" width="50%" alt="Remove Default Inound Rules"></p>
  
- We will select the 'Add an Inbound Rule' option and then make a change to the 'Destination port ranges' to an ' * ' as a wildcard to accept anything. Then will select to change the Priority to 100 and make a name change to your liking (DANGER_ANY_IN). You can now select 'Add' 
+ We will select the 'Add an Inbound Rule' option and then make a change to the 'Destination port ranges' to an ' * ' as a wildcard to accept anything. Then, we'll select to change the Priority to 100 and make a name change to your liking (DANGER_ANY_IN). You can now select 'Add' 
  <p align="center"><img src="https://i.imgur.com/i4dgfhu.png" height="50%" width="50%" alt="Create New NSG"/></p>
  Adjusting the inbound rules will appear as follows:
  <pre>
@@ -323,7 +323,7 @@ Select windows defender firewall properties
 
 ## Remove Windows Firewall Restrictions
 
-Now select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.
+Now, select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.
 <p align="center"> <img src="https://i.imgur.com/8nwwdH8.png" height="50%" width="50%" alt="Disable Firewall"/></p>
 After you've cycled through each of these, you can now select 'Apply' then press 'OK'.
 
@@ -355,14 +355,14 @@ This is what we will see that gives you an idea of
 The collection path is where the logs will actually live on the VM and remember that the path was "C:\ProgramData\failed_rdp.log" that we will add here. Be sure that the path is correct or the logs will not be collected correctly. 
 <p align="center"><img src="https://i.imgur.com/DqVb7o9.png" height="50%" width="50%" alt="collection path"/></p>
 
-Here will create your custom name and a description of what the log will do. An example here could be "Log will gather details about the location and users that failed to login into RDP".
+Here we'll create your custom name and a description of what the log will do. An example here could be "Log will gather details about the location and users that failed to login into RDP".
 <p align="center"><img src="https://i.imgur.com/AzEEZS9.png" height="50%" width="50%" alt="details for log"/></p>
 
 Review + Create will be the final steps here for the custom log and it gives you an overview of what you've just created in case you want to go back and make adjustments or necessary changes. 
 <p align="center"><img src="https://i.imgur.com/hOtyCXB.png" height="50%" width="50%" alt="review + create custom log"/></p>
 
 ## Utilize KQL Kusto Query
-Since the custom log have been established, we can go to 'Logs' on the left pane and we will enter "FAILED_RDP_WITH_GEO_CL" in the Kusto Query Language (KQL) field.
+Since the custom log has been established, we can go to 'Logs' on the left pane and we will enter "FAILED_RDP_WITH_GEO_CL" in the Kusto Query Language (KQL) field.
 
 A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model that is easy to read, author, and automate. Kusto queries are made of one or more query statements. (learn more <a hre="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/"here</a>) 
 
