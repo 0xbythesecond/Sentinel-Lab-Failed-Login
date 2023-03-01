@@ -184,12 +184,15 @@ We will create a Virtua Machine that will be exposed to the internet where peopl
 We search `Virtual Machine` at top of the page, and once the page loads will choose the '+ Create' button to begin the first steps of creating the virtual machine.
 <p align="center"><img src="https://i.imgur.com/CoIAYPA.png" height="50%" width="50%" alt="Create Virtual Machine"/></p>
  
-Here we will choose to create a resource group (naming convention here is the name of the labname-rg). We're also selecting the 'East US' as our preferred region due to resource cost and availability. After the region is selected, we will select the image of Windows 10 pro and the other settings will continue to be set at default. 
+Here we will choose to create a resource group (naming convention here is the name of the labname-rg). We're also selecting the '`East US`' as our preferred region due to resource cost and availability. After the region is selected, we will select the image of Windows 10 pro and the other settings will continue to be set at default. 
 <p align="center"><img src="https://i.imgur.com/nZxgZCr.png" height="50%" width="50%" alt="Enter details for Virtual Machine"/></p>
 
 <p align="center"><img src="https://i.imgur.com/35M9M7U.png" height="50%" width="50%" alt"Enter image user name and password"/></p>
 
 Leave the default settings for the inbound port rules that are found below and be sure to check the box for "I confirm I have an eligible Windows 10/11 license with multi-tenant hosting rights."
+ 
+   >**Note**: There will be a validation error message present if this check box is not selected while creating the virtual machine.
+ 
 <p align="center"><img src="https://i.imgur.com/INNWJ1p.png" height="50%" width="50%" alt="Select license checkbox"/></p>
  
 In the Networking portion, we will select to change the NIC Network Security Group (NSG) from Basic to Advanced to adjust the inbound rules of the NSG to allow everything into the Virtual Machine.
