@@ -257,10 +257,10 @@ We can now search for 'Defender for Cloud' at the top of the page so that we can
 To do so, we will navigate to 'Environment Settings' then select the log analytics workspace that we created previously that is displayed as a selectable option. We will then, select to turn 'Azure Defender On' and then turn <b>OFF</b> 'SQL Servers on Machine'. Once this is done, you will select to '<b> Save </b>'. 
 <p align="center"><img src="https://i.imgur.com/v7SNEGs.png" height="50%" width="50%" alt="Pricing & Settings"/></p>
  
-Following this, we will select 'Data Collection' in the left pane and enable 'All Events' option under store additional raw data - windows securtity events then choose to '<b> Save</b>'.
+Following this, we will select '`Data Collection`' in the left pane and enable '`All Events`' option under store additional raw data - windows securtity events then choose to '**`Save`**'.
 <p align="center"><img src="https://i.imgur.com/lKdP5Ah.png" height="50%" width="50%" alt="Select All Events"/></p>
  
-We can now go back to our log analytics workspace to connect our Virtual Machine. Search '`Log Analytics Workspace`' and then scroll down to select the Virtual Machine option. You will choose the VM that we created previously then select the chainlink to 'Connect' the VM to the log analytics workspace. 
+We can now go back to our log analytics workspace to connect our Virtual Machine. Search '`Log Analytics Workspace`' and then scroll down to select the Virtual Machine option. You will choose the VM that we created previously then select the chainlink to '`Connect`' the VM to the log analytics workspace. 
  
 <p align="center"><img src="https://i.imgur.com/IdHGvQ4.png" height="50%" width="50%" alt="choose workspace"/></p>
 <p align="center"><img src="https://i.imgur.com/9mSAa3S.png" height="50%" width="50%" alt="Select Virtual Machine in List"/></p>
