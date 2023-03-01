@@ -7,8 +7,8 @@ We will set up Azure Sentinel (SIEM) and connect it to a live virtual machine ac
 
 ## Prerequisites
 
-To deploy Microsoft Sentinel Trainig Lab, **you must have a Microsoft Azure subscription**. If you do not have an existing Azure subscription, you can sign up for a free trial [here](https://azure.microsoft.com/free/).
-The Powershell script in this repository is responsible for parsing out Windows Event Log information for failed RDP attacks and using a third party API (<a href="https://ipgeolocation.io/">ipgeolocation.io</a>) to collect geographic information about the attackers location. You will `sign up` at ipgeolocation to get your `own` API key to load into the PowerShell script. 
+To deploy Microsoft Sentinel Trainig Lab, **`you must have a Microsoft Azure subscription`**. If you do not have an existing Azure subscription, you can sign up for a free trial [here](https://azure.microsoft.com/free/).
+The Powershell script in this repository is responsible for parsing out Windows Event Log information for failed RDP attacks and using a third party API [ipgeolocation.io](https://ipgeolocation.io/) to collect geographic information about the attackers location. You will `sign up` at ipgeolocation to get your `own` API key to load into the PowerShell script. 
 
 <details>
  <summary><h3> 📜 PowerShell Script </h3></summary> 
@@ -157,23 +157,23 @@ while ($true)
 </details>
  
 ## Description
-<ul> <li>Configure and Deploy Azure Resources such as Log Analytics Workspace, Virtual Machines, and Azure Sentinel.</li>
- <li>Implement Network Rules for Network Security Group (NSG)</li>
- <li> Take A Look At Windows Security Event logs</li>
- <li> Use KQL Query Logs </li>
- <li>Enable gathering VM logs in Security Center</li>
- <li>Connect Log Analytics to VM</li>
- <li>Log into VM with Remote Desktop (fail 1 logon)</li>
- <li>Observe Event Viewer Logs in VM</li>
-<li>Turn of Windows Firewall on VM</li>
-<li>Download PowerShell Script</li>
-<li>Get Geolocation.io API Key</li>
-<li>Run Script To get Geo Data from attackers</li>
-<li>Create custom log in LAW to bring in our custom log</li>
-<li>Create custom fields/extract fields from raw custom log data</li>
-<li>Testing Extracts</li>
-<li>Setup map in sentinel with Latitude and Longitude (or country)</li>
- </ul>
+- Configure and Deploy Azure Resources such as Log Analytics Workspace, Virtual Machines, and Azure Sentinel.
+- Implement Network Rules for Network Security Group (NSG)
+- Take A Look At Windows Security Event logs
+- Use KQL Query Logs
+- Enable gathering VM logs in Security Center
+- Connect Log Analytics to VM
+- Log into VM with Remote Desktop (fail 1 logon)
+- Observe Event Viewer Logs in VM
+- Turn of Windows Firewall on VM
+- Download PowerShell Script
+- Get Geolocation.io API Key
+- Run Script To get Geo Data from attackers
+- Create custom log in LAW to bring in our custom log
+- Create custom fields/extract fields from raw custom log data
+- Testing Extracts
+- Setup map in sentinel with Latitude and Longitude (or country)
+ 
  
  
  ## Configure and Deploy Resources
@@ -260,7 +260,8 @@ To do so, we will navigate to 'Environment Settings' then select the log analyti
 Following this, we will select 'Data Collection' in the left pane and enable 'All Events' option under store additional raw data - windows securtity events then choose to '<b> Save</b>'.
 <p align="center"><img src="https://i.imgur.com/lKdP5Ah.png" height="50%" width="50%" alt="Select All Events"/></p>
  
-We can now go back to our log analytics workspace to connect our Virtual Machine. Search 'Log Analytics Workspace' and then scroll down to select the Virtual Machine option. You will choose the VM that we created previously then select the chainlink to 'Connect' the VM to the log analytics workspace. 
+We can now go back to our log analytics workspace to connect our Virtual Machine. Search '`Log Analytics Workspace`' and then scroll down to select the Virtual Machine option. You will choose the VM that we created previously then select the chainlink to 'Connect' the VM to the log analytics workspace. 
+ 
 <p align="center"><img src="https://i.imgur.com/IdHGvQ4.png" height="50%" width="50%" alt="choose workspace"/></p>
 <p align="center"><img src="https://i.imgur.com/9mSAa3S.png" height="50%" width="50%" alt="Select Virtual Machine in List"/></p>
  
@@ -270,10 +271,12 @@ We can now go back to our log analytics workspace to connect our Virtual Machine
 <p align="center"><img src="https://i.imgur.com/zSpANfP.png" height="50%" width="50%" alt="Connect Virtual Machine"/></p>
  
 ## Setup Azure Sentinel
-We're going to set up Sentinel now that we can visualize the attack data that will display the details of the attackers location. You will do a quick search for 'Sentinel' and then select the 'Create' button at the top left or the middle of the screen. Then we will select the log analytics workspace (created earlier) that we want to connect to where all of our logs are. Once it's selected you can press the add button at the bottom of the screen.   
+We're going to set up Sentinel now that we can visualize the attack data that will display the details of the attackers location. You will do a quick search for `Sentinel` and then select the `Create` button at the top left or the middle of the screen. Then we will select the log analytics workspace (created earlier) that we want to connect to where all of our logs are. Once it's selected you can press the add button at the bottom of the screen.   
+ 
 <p align="center"><img src="https://i.imgur.com/10d9qnu.png" height="50%" width="50%" alt="Sentinel"/></p>
 
-Select '<b>Add</b>' here. 
+Select **`Add`** here. 
+ 
 <p align="center"><img src="https://i.imgur.com/FZvnWWI.png" height="50%" width="50%" alt="Add Workspace to Sentinel"/></p>
 
 Now, we can go back to the virtual machine to check and see if it is finished connecting and if so, you will choose the VM to select the public IP address that we will be using to connect via Remote Desktop Connect (RDP)
@@ -292,11 +295,11 @@ Application logs, Security Logs, Setup, System, and Forwarded Events.
 
 Our focus in this lab will be on Windows Security events.
 
-Click “Security” and observe the events.
+Click “`Security`” and observe the events.
 
 As you can see there are several security events in event viewer. Let’s drill into one of these events.
 
-Here, our focus will be event id <b>4625</b> for the failed logins. The details that available in the log that is selected are as follows: 
+Here, our focus will be event id **4625** for the failed logins. The details that available in the log that is selected are as follows: 
  
 <li>Account name</li>
 <li>Account domain</li>
@@ -327,31 +330,34 @@ Select windows defender firewall properties
 
 Now, select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.
 <p align="center"> <img src="https://i.imgur.com/8nwwdH8.png" height="50%" width="50%" alt="Disable Firewall"/></p>
-After you've cycled through each of these, you can now select 'Apply' then press 'OK'.
+
+After you've cycled through each of these, you can now select '`Apply`' then press '`OK`'.
 
 We can go to the VM and open PowerShell ISE and this will be where our script will be loaded.
 <p align="center"><img src="https://i.imgur.com/Vq5Tmxf.png" height="50%" width="50%" alt="powershell ise screenshot"/></p>
 
 You can use the powershell script listed above or can be found <a href="https://github.com/joshmadakor1/Sentinel-Lab/blob/main/Custom_Security_Log_Exporter.ps1">here</a> by creating a new file inside PowerShell ISE and can name it Log_Exporter. For this script, you will need your own API Key that you can get by signing up for an account at <a href="https://ipgeolocation.io/signup.html">Sign Up</a>.
+
 Without the API key, you will not be able to get the geo data that allows the location of the bad actors to be shown.
-So go to your powershell click 'new script' at the top left of the window and paste the script provided. Be sure to change the API key to your API key that you received when creating your account on ipgeolocation. 
+So go to your powershell click '`new script`' at the top left of the window and paste the script provided. Be sure to change the API key to your API key that you received when creating your account on ipgeolocation. 
+
 <p align="center"> <img src="https://i.imgur.com/39362oA.png" height="50%" width="50%" alt="PowerShell File Creation"/></p>
 
 ## Create a Custom Log
-The next thing that we'll do is create a custom log. We will go to the log analytics workspace and select 'Custom Log" then choose to add the custom log. To get the log that has been created from the script, we can go to the virtual machine and the path of C:\ProgramData\ and select 'failed_rdp' file so C:\ProgramData\failed_rdp.log. 
+The next thing that we'll do is create a custom log. We will go to the log analytics workspace and select '`Custom Log`' then choose to add the custom log. To get the log that has been created from the script, we can go to the virtual machine and the path of C:\ProgramData\ and select 'failed_rdp' file so C:\ProgramData\failed_rdp.log. 
 <p align="center"> <img src="https://i.imgur.com/5DnQMZm.png" height="50%" width="50%" alt="failed_rdp file"/></p>
 
-The first few lines that are present in the log file displays sample data that will be used. You will go to 'log analytics workspace' and then select the workspace that we previously created.
+The first few lines that are present in the log file displays sample data that will be used. You will go to '`log analytics workspace`' and then select the workspace that we previously created.
 <p align="center"><img src="https://i.imgur.com/KdTjnnL.png" height="50%" width="50%" alt="select workspace"/></p>
-After choosing the workspace, you will select 'Custom Log' on the left pane. 
+After choosing the workspace, you will select '`Custom Log`' on the left pane. 
 <p align="center"><img src="https://i.imgur.com/jNp2UCm.png" height="25%" width="25%" alt="select custom log"/></p>
-Upon the custom log page, you can select the '+ Add custom log' button at the top left or the 'Add custom log' button in the center of the page (there is no preference).
+Upon the custom log page, you can select the '`+ Add custom log`' button at the top left or the '`Add custom log`' button in the center of the page (there is no preference).
 <p align="center"><img src="https://i.imgur.com/maWRcws.png" height="50%" width="50%" alt="add custom log"/></p>
 
-To get the log file, we will go to our virtual machinen and copy the logs that are found in failed_rdp and paste them into notepad on our local computer. You can save it to your desktop so that it can be found easily and this can be named failed_rdp.log as well (for ease of search on the local computer).
+To get the log file, we will go to our virtual machine and copy the logs that are found in failed_rdp and paste them into notepad on our local computer. You can save it to your desktop so that it can be found easily and this can be named failed_rdp.log as well (for ease of search on the local computer).
 <p align="center"><img src="https://i.imgur.com/JEZQeYw.png" height="50%" width="50%" alt="add customer log file"/></p>
 
-This is what we will see that gives you an idea of 
+This is what we will see that gives you an idea of the sampe logs that we will use later to create a query.
 <p align="center"><img src="https://i.imgur.com/Tw1cTik.png" height="50%" width="50%" alt="record delimiter"/></p>
 
 The collection path is where the logs will actually live on the VM and remember that the path was "C:\ProgramData\failed_rdp.log" that we will add here. Be sure that the path is correct or the logs will not be collected correctly. 
@@ -364,7 +370,7 @@ Review + Create will be the final steps here for the custom log and it gives you
 <p align="center"><img src="https://i.imgur.com/hOtyCXB.png" height="50%" width="50%" alt="review + create custom log"/></p>
 
 ## Utilize KQL Kusto Query
-Since the custom log has been established, we can go to 'Logs' on the left pane and we will enter "FAILED_RDP_WITH_GEO_CL" in the Kusto Query Language (KQL) field.
+Since the custom log has been established, we can go to '`Logs`' on the left pane and we will enter "`FAILED_RDP_WITH_GEO_CL`" in the Kusto Query Language (KQL) field.
 
 A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model that is easy to read, author, and automate. Kusto queries are made of one or more query statements. (learn more <a hre="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/"here</a>) 
 
@@ -376,10 +382,10 @@ In the raw data column of the logs, it contains the entire line of each of the c
 <p align="center"><img src="https://i.imgur.com/gqcL9Vv.png" height="50%" width="50%" alt="failed rdp with geo raw column"/></p>
 
 
-To extract the data, you will select one of the results and expanding it using the caret and then right-click on the raw data. After right-clicking, you select the option of "extract fields from 'FAILED_RDP_WITH_GEO'."
+To extract the data, you will select one of the results and expanding it using the caret and then right-click on the raw data. After right-clicking, you select the option of "`extract fields from 'FAILED_RDP_WITH_GEO'.`"
 <p align="center"><img src="https://i.imgur.com/MHTUEa1.png" height="50%" width="50%" alt="extract data"/></p>
 
-We will be extracting each of these fields that are found in the raw data. The first field that we will be extracting will be the 'latitude' field. So we will hightlight the numbers that follow the colon after latitude. Enter the field title name manually and select numeric as the field type. 
+We will be extracting each of these fields that are found in the raw data. The first field that we will be extracting will be the '`latitude`' field. So we will hightlight the numbers that follow the colon after latitude. Enter the field title name manually and select numeric as the field type. 
 <p align="center"><img src="https://i.imgur.com/nVIINal.png" height="50%" width="50%" alt="extract latitude"/></p>
 
 We will continue to do this for each of the fields present in raw data:
@@ -392,10 +398,10 @@ sourcehost
 state
 country
 timestamp</pre>
-After selecting to extract the data for latitude the results will yield the following for the search results and matches. Once you've verified that the search results align with the correct outcome for latitude, you will press the 'Save Extration' button at the bottom of the page. 
+After selecting to extract the data for latitude the results will yield the following for the search results and matches. Once you've verified that the search results align with the correct outcome for latitude, you will press the '`Save Extration`' button at the bottom of the page. 
 <p align="center"><img src="https://i.imgur.com/vCwgDDs.png" height="50%" width="50%" alt="extract latitude"/></p>
 
-If for some reason, the longitude or another field does not properly hightlight in the search result, click the pencil in the right hand corner then select 'modify this highlight'. 
+If for some reason, the longitude or another field does not properly hightlight in the search result, click the pencil in the right hand corner then select '`modify this highlight`'. 
 <p align="center"><img src="https://i.imgur.com/0cL4EKS.png" height="50%" width="50%" alt="modify hightlight"/></p>
 
 Here we are getting the data for the destinationhost that follow the same steps as before. The destination host will be the virtual machine that we created earlier. 
