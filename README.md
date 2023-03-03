@@ -372,7 +372,7 @@ Review + Create will be the final steps here for the custom log and it gives you
 ## Utilize KQL Kusto Query
 Since the custom log has been established, we can go to '`Logs`' on the left pane and we will enter "`FAILED_RDP_WITH_GEO_CL`" in the Kusto Query Language (KQL) field.
 
-A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model that is easy to read, author, and automate. Kusto queries are made of one or more query statements. (learn more <a hre="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/"here</a>) 
+A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model that is easy to read, author, and automate. Kusto queries are made of one or more query statements. (learn more [here](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)) 
 
 Here is an example for <b> SecurityEvent</b> of failed log in attempts <b> where</b> the EventID <b> 4625 </b>:
 <pre> SecurityEvent
@@ -441,7 +441,7 @@ Select the '+ Add workbook' button new the top of the page
 After the workbook loads, you will select the edit and remove each of the widgets that are pre-loaded queries as we will be adding our own. 
 <p align="center"><img src="https://i.imgur.com/3ZAPODj.png" height="50%" width="50%" alt="add workbook"/></p>
 
-Select the '+Add' button and then select to 'Add Query'. 
+Select the '`+Add`' button and then select to '`Add Query`'. 
 <p align="center"><img src="https://i.imgur.com/GvTpvUH.png" height="50%" width="50%" alt="add query"/></p>
 
 We will add the following query that reflects what we have created from the raw data of the logs:
