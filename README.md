@@ -219,7 +219,7 @@ In the Networking portion, we will select to change the NIC Network Security Gro
  100</pre>
  
  The added inbound rule with the changes are now reflected here:
- <p align="center"><img src="https://i.imgur.com/XhQYX8n.png" height="70%" width="70%" alt="Updated NSG Inbound Rules"/></p>
+ <p align="center"><img src="https://i.imgur.com/XhQYX8n.png" height="100%" width="100%" alt="Updated NSG Inbound Rules"/></p>
  
 We will now press 'OK' to move forward. 
 Once these have been looked over, we can now select to 'Review + Create"
@@ -314,7 +314,7 @@ Here, our focus will be event id **4625** for the failed logins. The details tha
 <li>Workstation</li>
 <li>Source Network Address (IP address)</li>
 <li>And more</ul>
-<p align="center"> <img src="https://i.imgur.com/KNq7Tmr.png" height="30%" width="30%" alt="Event Viewer 4625 log"/></p>
+<p align="center"> <img src="https://i.imgur.com/KNq7Tmr.png" height="70%" width="70%" alt="Event Viewer 4625 log"/></p>
 
 ## Gather API key for use with PowerShell
 
