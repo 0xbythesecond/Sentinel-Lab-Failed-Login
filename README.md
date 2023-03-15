@@ -165,7 +165,7 @@ while ($true)
 - Connect Log Analytics to VM
 - Log into VM with Remote Desktop (fail 1 logon)
 - Observe Event Viewer Logs in VM
-- Turn of Windows Firewall on VM
+- Turn off Windows Firewall on VM
 - Download PowerShell Script
 - Get Geolocation.io API Key
 - Run Script To get Geo Data from attackers
