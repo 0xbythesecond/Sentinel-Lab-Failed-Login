@@ -504,7 +504,7 @@ event_count
 Then we will save the map settings that we have put in place
 <p align="center"><img src="https://i.imgur.com/y4i26f3.png" height="70%" width="70%" alt="save map settings"/></p>
 
-Finally, this is our last image of more countries deciding to join in on the fun of attempting to access our virtual machine
+Finally, this is our last image of more countries deciding to join in on the fun of attempting to access our virtual machine in about a span of 18 hours. 
 <p align="center"><img src="https://i.imgur.com/Ia7U0yS.png" height="70%" width="70%" alt="last image for map attack"/></p>
 
 `That's that end of the lab, be sure to delete the resource group that was created if you are done and it no longer has use.`
