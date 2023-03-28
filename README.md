@@ -349,8 +349,11 @@ The next thing that we'll do is create a custom log. We will go to the log analy
 
 The first few lines that are present in the log file displays sample data that will be used. You will go to '`log analytics workspace`' and then select the workspace that we previously created.
 <p align="center"><img src="https://i.imgur.com/KdTjnnL.png" height="70%" width="70%" alt="select workspace"/></p>
-After choosing the workspace, you will select '`Custom Log`' on the left pane. 
+
+After choosing the workspace, you will select `'Custom Log'` on the left pane. 
+
 <p align="center"><img src="https://i.imgur.com/jNp2UCm.png" height="25%" width="25%" alt="select custom log"/></p>
+
 Upon the custom log page, you can select the '`+ Add custom log`' button at the top left or the '`Add custom log`' button in the center of the page (there is no preference).
 <p align="center"><img src="https://i.imgur.com/maWRcws.png" height="70%" width="70%" alt="add custom log"/></p>
 
@@ -435,16 +438,20 @@ If we are to go back to sentinel, we can see an overview of the events that have
 Now we will set up our geo map in our workbook. 
 <p align="center"><img src="https://i.imgur.com/C2LTEA9.png" height="70%" width="70%" alt="sentinel workbooks select"/></p>
 
-Select the '+ Add workbook' button new the top of the page
+Select the `+ Add workbook` button new the top of the page
+
 <p align="center"><img src="https://i.imgur.com/xNVaojA.png" height="70%" width="70%" alt="add workbook"/></p>
 
-After the workbook loads, you will select the edit and remove each of the widgets that are pre-loaded queries as we will be adding our own. 
+After the workbook loads, you will select the `Edit` button and remove each of the widgets that are pre-loaded queries as we will be adding our own. 
+
 <p align="center"><img src="https://i.imgur.com/3ZAPODj.png" height="70%" width="70%" alt="add workbook"/></p>
 
 Select the '`+Add`' button and then select to '`Add Query`'. 
+
 <p align="center"><img src="https://i.imgur.com/GvTpvUH.png" height="70%" width="70%" alt="add query"/></p>
 
 We will add the following query that reflects what we have created from the raw data of the logs:
+
 <pre>
 FAILED_RDP_WITH_GEO_CL | summarize event_count=count() by sourcehost_CF, latitude_CF, longitude_CF, country_CF, label_CF, destinationhost_CF
 | where destinationhost_CF != "samplehost"
@@ -452,7 +459,8 @@ FAILED_RDP_WITH_GEO_CL | summarize event_count=count() by sourcehost_CF, latitud
 </pre>
 
 ## Create Workbook to Provide Map Visualization
-<p align="center"><img src="https://i.imgur.com/eyXFcVn.png" height="70%" width="70%" alt="change visualization to map"/></p>
+<p align="center"><img src="https://i.imgur.com/eyXFcVn.png" height="70%" width="70%" alt="change visualization to map"/>
+</p>
 
 You will apply the following to the Map Settings:
 <pre>
@@ -502,10 +510,14 @@ event_count
 10
 </pre>
 Then we will save the map settings that we have put in place
-<p align="center"><img src="https://i.imgur.com/y4i26f3.png" height="70%" width="70%" alt="save map settings"/></p>
+<p align="center">
+<img src="https://i.imgur.com/y4i26f3.png" height="70%" width="70%" alt="save map settings"/>
+</p>
 
 Finally, this is our last image of more countries deciding to join in on the fun of attempting to access our virtual machine in about a span of 18 hours. 
-<p align="center"><img src="https://i.imgur.com/Ia7U0yS.png" height="70%" width="70%" alt="last image for map attack"/></p>
+<p align="center">
+<img src="https://i.imgur.com/Ia7U0yS.png" height="70%" width="70%" alt="last image for map attack"/>
+</p>
 
 `That's that end of the lab, be sure to delete the resource group that was created if you are done and it no longer has use.`
 
