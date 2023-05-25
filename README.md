@@ -174,8 +174,13 @@ while ($true)
 - Testing Extracts
 - Setup map in sentinel with Latitude and Longitude (or country)
   
+<details>
+ 
+ <summary> 
+  
  ## Configure and Deploy Resources
-
+  
+</summary
 We will create a Virtual Machine that will be exposed to the internet where people around world will be able to attack it. Bad actors will try to login to this Virtual Machine once they've discovered that it's now online. While creating the Virtual Machine, we will create a new Resource Group as well.
  
 We search `Virtual Machine` at top of the page in Azure, and once the page loads will choose the '`+ Create`' button to begin the first steps of creating the virtual machine.
@@ -234,8 +239,16 @@ Validation of Creation of VM --- This is the final step in creating the virtual 
  This is the final confirmation displaying the creation of the Virtual Machine 
  <p align="center"><img src="https://i.imgur.com/fjDO3oV.png" height="70%" width="70%" alt="Deployment of VM"/></p>
  
-## Create Our Log Ananlytics Workspace 
+ </details>  
  
+ #
+ 
+ <details>
+ <summary>
+  
+## Create Our Log Ananlytics Workspace 
+  
+ </summary>  
 Now, we are going to create our Log Analytics Workspace to receive or ingest logs from the virtual machine such as windows event logs and our custom logs that has geographic information in order to discover where the attackers are located. Our SIEM will be able to connect to the workspace to be able to display the geo-data on the map that will be created later in the lab. 
  
 <p align="center"><img src="https://i.imgur.com/1ExWnBV.png" height="70%" width="70%" alt="Create Log Analytics Workspace"/></p>
@@ -269,8 +282,17 @@ We can now go back to our log analytics workspace to connect our Virtual Machine
 <p align="center"><img src="https://i.imgur.com/r9xAInL.png" height="70%" width="70%" alt="select vm"/></p>
  
 <p align="center"><img src="https://i.imgur.com/zSpANfP.png" height="70%" width="70%" alt="Connect Virtual Machine"/></p>
+
+ </details> 
+ 
+ # 
+ 
+ <details>
+ <summary>
  
 ## Setup Azure Sentinel
+ 
+ </summary> 
 We're going to set up Sentinel now that we can visualize the attack data that will display the details of the attackers location. You will do a quick search for `Sentinel` and then select the `Create` button at the top left or the middle of the screen. Then we will select the log analytics workspace (created earlier) that we want to connect to where all of our logs are. Once it's selected you can press the add button at the bottom of the screen.   
  
 <p align="center"><img src="https://i.imgur.com/10d9qnu.png" height="70%" width="70%" alt="Sentinel"/></p>
@@ -316,7 +338,17 @@ Here, our focus will be event id **4625** for the failed logins. The details tha
 <li>And more</ul>
 <p align="center"> <img src="https://i.imgur.com/KNq7Tmr.png" height="70%" width="70%" alt="Event Viewer 4625 log"/></p>
 
+</details> 
+
+#
+
+<details>
+ 
+<summary> 
+
 ## Gather API key for use with PowerShell
+ 
+</summary>  
 
 We will grab the IP address that is found here in Event Viewer that was from the failed login and use that address with <a href="https://ipgeolocation.io/">ipgeolocation.io</a> to get an accurate IP address lookup. This will allow us to plot ou the different attackers on a map. 
 <p align="center"> <img src="https://i.imgur.com/Ophfhxt.png" height="70%" width="70%" alt="IP Geolocation"/></p>
@@ -326,8 +358,18 @@ To do so, we can do a quick search in the virtual machine for 'wf.msc'.
 Select windows defender firewall properties
 <p align="center"><img src="https://i.imgur.com/MwBKGvY.png" height="70%" width="70%" alt="windows defender firewall"/></p>
 
+</details> 
+
+#
+
+<details> 
+ 
+ <summary> 
+  
 ## Remove Windows Firewall Restrictions
 
+ </summary>
+ 
 Now, select the domain profile tab > firewall state: <b>off</b>. Follow up by selecting the Private Profile > firewall state: <b>Off</b> and then Public Profile > firewall state: <b>Off</b>.
 <p align="center"> <img src="https://i.imgur.com/8nwwdH8.png" height="70%" width="70%" alt="Disable Firewall"/></p>
 
@@ -343,7 +385,15 @@ So go to your powershell click '`new script`' at the top left of the window and 
 
 <p align="center"> <img src="https://i.imgur.com/39362oA.png" height="70%" width="70%" alt="PowerShell File Creation"/></p>
 
+ </details> 
+ 
+ #
+ <details> 
+ <summary>
+  
 ## Create a Custom Log
+  
+ </summary> 
 The next thing that we'll do is create a custom log. We will go to the log analytics workspace and select '`Custom Log`' then choose to add the custom log. To get the log that has been created from the script, we can go to the virtual machine and the path of C:\ProgramData\ and select 'failed_rdp' file so C:\ProgramData\failed_rdp.log. 
 <p align="center"> <img src="https://i.imgur.com/5DnQMZm.png" height="70%" width="70%" alt="failed_rdp file"/></p>
 
@@ -372,15 +422,26 @@ Here we'll create your custom name and a description of what the log will do. An
 Review + Create will be the final steps here for the custom log and it gives you an overview of what you've just created in case you want to go back and make adjustments or necessary changes. 
 <p align="center"><img src="https://i.imgur.com/hOtyCXB.png" height="70%" width="70%" alt="review + create custom log"/></p>
 
+ </details> 
+ 
+ #
+ <details> 
+ <summary> 
+  
 ## Utilize KQL Kusto Query
+  
+ </summary> 
+ 
 Since the custom log has been established, we can go to '`Logs`' on the left pane and we will enter "`FAILED_RDP_WITH_GEO_CL`" in the Kusto Query Language (KQL) field.
 
 A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model that is easy to read, author, and automate. Kusto queries are made of one or more query statements. (learn more [here](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)) 
 
-Here is an example for <b> SecurityEvent</b> of failed log in attempts <b> where</b> the EventID <b> 4625 </b>:
-<pre> SecurityEvent
-| where EventID == 4625 </pre>
-
+Here is an example for <b> SecurityEvent</b> of failed log in attempts <b> where</b> the EventID *#4625#* </b>:
+```elm
+SecurityEvent
+| where EventID == 4625
+```
+ 
 In the raw data column of the logs, it contains the entire line of each of the custom logs that we created for "FAILED_RDP_WITH_GEO_CL. With the raw data, we will extract certain fields from it so that we can create columns that will be displayed as a result.
 <p align="center"><img src="https://i.imgur.com/gqcL9Vv.png" height="70%" width="70%" alt="failed rdp with geo raw column"/></p>
 
