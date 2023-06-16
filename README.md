@@ -513,11 +513,11 @@ Select the '`+Add`' button and then select to '`Add Query`'.
 
 We will add the following query that reflects what we have created from the raw data of the logs:
 
-<pre>
+```kql
 FAILED_RDP_WITH_GEO_CL | summarize event_count=count() by sourcehost_CF, latitude_CF, longitude_CF, country_CF, label_CF, destinationhost_CF
 | where destinationhost_CF != "samplehost"
 | where sourcehost_CF != ""
-</pre>
+```
 
 ## Create Workbook to Provide Map Visualization
 <p align="center"><img src="https://i.imgur.com/eyXFcVn.png" height="70%" width="70%" alt="change visualization to map"/>
